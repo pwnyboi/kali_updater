@@ -1,8 +1,16 @@
 import subprocess
+import time
+import os
 
-with open("commands.txt", "r") as ku:
-    cmds = ku.readlines()
-    for item in cmds:
-        print(f"Executing: {item}")
-        subprocess.run(item.split(" "))
-        print(f"{item} Done!")
+print("updating kali")
+subprocess.run("sudo apt update")
+print("upgrading kali")
+subprocess.run("sudo apt full-upgrade")
+print("auto removing old dependancies")
+subprocess.run("sudo apt auto-remove")
+time.sleep(1)
+print("process complete!")
+print("auto closing ;) ")
+time.sleep(1)
+
+quit()
